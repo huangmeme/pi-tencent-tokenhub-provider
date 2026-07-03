@@ -34,7 +34,8 @@ pi install git:github.com/huangmeme/pi-tencent-tokenhub-provider
 ### Set your API key
 
 ```bash
-# Recommended: /login in Pi, choose tencent-tokenhub
+# Recommended in Pi:
+# /login -> Use an API key -> Tencent TokenHub
 
 # Or environment variable (PowerShell)
 $env:TOKENHUB_API_KEY = "your-api-key-here"
