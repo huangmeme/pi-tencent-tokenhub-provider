@@ -1,9 +1,6 @@
-# Dependencies
+# Dependencies (not required for this package)
 node_modules/
-
-# Build outputs
 dist/
-build/
 
 # Environment files
 .env
@@ -22,14 +19,6 @@ Thumbs.db
 
 # Logs
 *.log
-npm-debug.log*
-
-# Test coverage
-coverage/
-
-# Temporary files
-tmp/
-temp/
 
 # Pi agent
 .pi/

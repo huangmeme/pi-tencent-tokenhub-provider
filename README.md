@@ -14,16 +14,15 @@ A [Pi coding agent](https://github.com/earendil-works/pi) provider extension for
 ## Installation
 
 ```bash
-pi install npm:pi-tencent-tokenhub-provider
+git clone https://github.com/huangmeme/pi-tencent-tokenhub-provider.git
+cd pi-tencent-tokenhub-provider
+pi install .
 ```
 
-Or clone locally:
+Or install directly from GitHub:
 
 ```bash
-git clone https://github.com/YOUR_USER/pi-tencent-tokenhub-provider.git
-cd pi-tencent-tokenhub-provider
-npm install && npm run build
-pi install .
+pi install git:https://github.com/huangmeme/pi-tencent-tokenhub-provider
 ```
 
 ## Usage
@@ -33,8 +32,8 @@ pi install .
 ```bash
 # Recommended: /login in Pi, choose tencent-tokenhub
 
-# Or environment variable
-export TOKENHUB_API_KEY=your-api-key-here
+# Or environment variable (PowerShell)
+$env:TOKENHUB_API_KEY = "your-api-key-here"
 ```
 
 ### Run
@@ -46,17 +45,9 @@ pi --provider tencent-tokenhub --model deepseek-v4-flash-202605
 ### Region (optional)
 
 ```bash
-export TOKENHUB_REGION=cn      # default
-export TOKENHUB_REGION=intl    # Singapore
-export TOKENHUB_BASE_URL=https://tokenhub.tencentmaas.com/v1
-```
-
-## Development
-
-```bash
-npm install
-npm run build
-npm test
+$env:TOKENHUB_REGION = "cn"      # default
+$env:TOKENHUB_REGION = "intl"    # Singapore
+$env:TOKENHUB_BASE_URL = "https://tokenhub.tencentmaas.com/v1"
 ```
 
 ## License

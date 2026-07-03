@@ -9,16 +9,16 @@
  * 3. TOKENHUB_API_KEY environment variable
  *
  * Usage:
- * pi install npm:pi-tencent-tokenhub-provider
+ * pi install git:https://github.com/huangmeme/pi-tencent-tokenhub-provider
  * /login -> tencent-tokenhub
  * pi --provider tencent-tokenhub --model deepseek-v4-flash-202605
  */
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
-import { createTokenHubOAuth, TOKENHUB_API_KEY_ENV } from "./auth.js";
-import { resolveTokenHubBaseUrl } from "./config.js";
-import { toProviderModels, TOKENHUB_MODELS } from "./models.js";
+import { createTokenHubOAuth, TOKENHUB_API_KEY_ENV } from "./auth.ts";
+import { resolveTokenHubBaseUrl } from "./config.ts";
+import { toProviderModels, TOKENHUB_MODELS } from "./models.ts";
 
 export const PROVIDER_TOKENHUB = "tencent-tokenhub";
 
