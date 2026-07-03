@@ -1,0 +1,49 @@
+{
+  "name": "pi-tencent-tokenhub-provider",
+  "version": "0.1.0",
+  "description": "Pi coding agent provider for Tencent TokenHub (DeepSeek V4 Flash / Pro)",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "pi",
+    "pi-package",
+    "pi-extension",
+    "tencent",
+    "tokenhub",
+    "deepseek",
+    "deepseek-v4",
+    "provider",
+    "authentication"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./dist/index.js"
+    ]
+  },
+  "devDependencies": {
+    "@mariozechner/pi-ai": "^0.73.0",
+    "@mariozechner/pi-coding-agent": "^0.73.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.0.0"
+  }
+}
