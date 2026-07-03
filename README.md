@@ -6,10 +6,14 @@ A [Pi coding agent](https://github.com/earendil-works/pi) provider extension for
 
 ## Supported Models
 
-| Model | Context | Output | Thinking | Description |
-|-------|---------|--------|----------|-------------|
-| `deepseek-v4-flash-202605` | 262,144 | 32,768 | yes | DeepSeek V4 Flash (default) |
-| `deepseek-v4-pro-202606` | 262,144 | 32,768 | yes | DeepSeek V4 Pro |
+| Model | Context | Max input | Max output | Thinking | Cache |
+|-------|---------|-----------|------------|----------|-------|
+| `deepseek-v4-flash-202605` | 1M | 1M | 384K | yes | automatic |
+| `deepseek-v4-pro-202606` | 1M | 1M | 384K | yes | automatic |
+
+Per [Tencent TokenHub model list](https://cloud.tencent.com/document/product/1823/130051).
+
+**Context caching:** DeepSeek V4 cache on TokenHub is automatic prefix caching. You do not need `cache_control` markers. Repeated identical prefixes are billed as cache hits and reported in `usage.prompt_tokens_details.cached_tokens`. Run `/reload` after updating the extension if models still show the old context size.
 
 ## Installation
 

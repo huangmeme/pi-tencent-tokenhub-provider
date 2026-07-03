@@ -1,18 +1,26 @@
 const ZERO_COST = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 } as const;
 
+/** Tencent TokenHub spec for DeepSeek V4 Flash / Pro. */
+export const DEEPSEEK_V4_CONTEXT_WINDOW = 1_000_000;
+export const DEEPSEEK_V4_MAX_OUTPUT_TOKENS = 393_216;
+
 export const DEEPSEEK_COMPAT = {
   supportsDeveloperRole: false,
   supportsReasoningEffort: true,
   requiresReasoningContentOnAssistantMessages: true,
+  supportsUsageInStreaming: true,
 } as const;
 
-/** DeepSeek V4 on TokenHub defaults to high reasoning effort. */
+/**
+ * DeepSeek V4 on TokenHub defaults to high reasoning effort.
+ * Official API also supports `max` for the strongest thinking mode.
+ */
 export const DEEPSEEK_THINKING_LEVEL_MAP = {
   minimal: null,
   low: null,
   medium: null,
   high: "high",
-  xhigh: "high",
+  xhigh: "max",
 } as const;
 
 export interface TokenHubModel {
@@ -29,6 +37,7 @@ export interface TokenHubModel {
     supportsDeveloperRole?: boolean;
     supportsReasoningEffort?: boolean;
     requiresReasoningContentOnAssistantMessages?: boolean;
+    supportsUsageInStreaming?: boolean;
   };
 }
 
@@ -40,10 +49,10 @@ export const TOKENHUB_MODELS: TokenHubModel[] = [
     name: "DeepSeek V4 Flash",
     reasoning: true,
     input: ["text"],
-    contextWindow: 262144,
-    maxTokens: 32768,
+    contextWindow: DEEPSEEK_V4_CONTEXT_WINDOW,
+    maxTokens: DEEPSEEK_V4_MAX_OUTPUT_TOKENS,
     cost: ZERO_COST,
-    description: "DeepSeek V4 Flash on Tencent TokenHub",
+    description: "DeepSeek V4 Flash on Tencent TokenHub (1M context, automatic prefix cache)",
     thinkingLevelMap: DEEPSEEK_THINKING_LEVEL_MAP,
     compat: DEEPSEEK_COMPAT,
   },
@@ -52,10 +61,10 @@ export const TOKENHUB_MODELS: TokenHubModel[] = [
     name: "DeepSeek V4 Pro",
     reasoning: true,
     input: ["text"],
-    contextWindow: 262144,
-    maxTokens: 32768,
+    contextWindow: DEEPSEEK_V4_CONTEXT_WINDOW,
+    maxTokens: DEEPSEEK_V4_MAX_OUTPUT_TOKENS,
     cost: ZERO_COST,
-    description: "DeepSeek V4 Pro on Tencent TokenHub",
+    description: "DeepSeek V4 Pro on Tencent TokenHub (1M context, automatic prefix cache)",
     thinkingLevelMap: DEEPSEEK_THINKING_LEVEL_MAP,
     compat: DEEPSEEK_COMPAT,
   },
