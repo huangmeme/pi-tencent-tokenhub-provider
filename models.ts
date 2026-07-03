@@ -1,6 +1,7 @@
 const ZERO_COST = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 } as const;
 
 export const DEEPSEEK_COMPAT = {
+  supportsDeveloperRole: false,
   supportsReasoningEffort: true,
   requiresReasoningContentOnAssistantMessages: true,
 } as const;
@@ -25,6 +26,7 @@ export interface TokenHubModel {
   description: string;
   thinkingLevelMap?: Record<string, string | null>;
   compat?: {
+    supportsDeveloperRole?: boolean;
     supportsReasoningEffort?: boolean;
     requiresReasoningContentOnAssistantMessages?: boolean;
   };

@@ -9,7 +9,7 @@
  * 3. TOKENHUB_API_KEY environment variable
  *
  * Usage:
- * pi install git:https://github.com/huangmeme/pi-tencent-tokenhub-provider
+ * pi install git:github.com/huangmeme/pi-tencent-tokenhub-provider
  * /login -> tencent-tokenhub
  * pi --provider tencent-tokenhub --model deepseek-v4-flash-202605
  */

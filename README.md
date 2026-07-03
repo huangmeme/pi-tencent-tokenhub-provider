@@ -22,7 +22,7 @@ pi install .
 Or install directly from GitHub:
 
 ```bash
-pi install git:https://github.com/huangmeme/pi-tencent-tokenhub-provider
+pi install git:github.com/huangmeme/pi-tencent-tokenhub-provider
 ```
 
 ## Usage
